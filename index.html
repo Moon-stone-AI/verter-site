@@ -138,12 +138,6 @@
               <a href="https://verter.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-xs font-bold font-mono transition-all flex items-center gap-2 cursor-pointer shadow-md">
                 <span>Open verter.glyphai.ie ↗</span>
               </a>
-              <a href="/verter.html" download="index.html" class="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold font-mono transition-all border border-emerald-500/50 flex items-center gap-2 cursor-pointer shadow-md">
-                <span>Download index.html for GitHub</span>
-              </a>
-              <button onclick="downloadCnameFile()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-medium transition-colors border border-slate-700 flex items-center gap-2 cursor-pointer">
-                <span>Download CNAME</span>
-              </button>
               <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-medium transition-colors border border-slate-800 flex items-center gap-1.5">
                 <span>gpu.glyphai.ie ↗</span>
               </a>
@@ -153,41 +147,6 @@
               <a href="https://github.com/Moon-stone-AI/verter-memory" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 text-xs font-medium transition-colors border border-slate-800 flex items-center gap-1.5">
                 <span class="font-mono text-slate-500">verter-memory ↗</span>
               </a>
-            </div>
-
-            <!-- DNS & HTTPS Diagnostic Banner -->
-            <div class="rounded-xl border border-amber-500/50 bg-amber-950/25 p-4 sm:p-5 space-y-3">
-              <div class="flex items-start gap-3">
-                <span class="text-amber-400 text-lg font-bold">⚠️</span>
-                <div class="space-y-1.5 flex-1">
-                  <div class="flex flex-wrap items-center gap-2">
-                    <span class="text-xs font-bold font-mono uppercase tracking-wider text-amber-400" data-i18n="dns_diag_title">
-                      DNS DIAGNOSTIC: WHY THE SITE IS "NOT SECURE" & INVALID DNS ERROR
-                    </span>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-red-950/80 text-red-300 border border-red-800/60">
-                      InvalidDNSError
-                    </span>
-                  </div>
-                  <p class="text-xs text-slate-300 leading-relaxed" data-i18n="dns_diag_desc">
-                    In your DNS management panel (4th screenshot), the CNAME for <strong>verter</strong> is currently set to <strong>verter.glyphai.ie</strong>. This points back to itself in a circular loop! GitHub Pages cannot verify the domain and cannot issue the TLS certificate, keeping the site on "Not secure" (HTTP).
-                  </p>
-                  <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs space-y-2">
-                    <div class="flex flex-wrap items-center gap-2 text-red-400">
-                      <span class="font-bold">❌ Current in DNS (row 4):</span>
-                      <code>verter &nbsp; CNAME &nbsp; verter.glyphai.ie</code>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-2 text-emerald-400 font-bold">
-                      <span>✅ Fix to (exact match with gpu!):</span>
-                      <code class="bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-700/60 text-emerald-300">
-                        verter &nbsp; CNAME &nbsp; moon-stone-ai.github.io
-                      </code>
-                    </div>
-                  </div>
-                  <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="dns_diag_action">
-                    Once updated in DNS, click "Check again" in GitHub Pages Settings → Pages. The TLS certificate will finalize and "Enforce HTTPS" will automatically activate!
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
