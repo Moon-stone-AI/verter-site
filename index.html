@@ -51,6 +51,9 @@
         <!-- Desktop Navigation Links -->
         <nav class="hidden lg:flex items-center gap-6 text-xs font-medium text-slate-400">
           <a href="#about" class="hover:text-cyan-300 transition-colors" data-i18n="nav_about">About Verter</a>
+          <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/20 transition-all font-semibold flex items-center gap-1.5" data-i18n="nav_gpu_health">
+            <span>⚡ GPU Health Score ↗</span>
+          </a>
           <a href="#help" class="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1" data-i18n="nav_help">
             <span>Help & FAQ</span>
           </a>
@@ -84,6 +87,7 @@
       <!-- Mobile sub-bar -->
       <div class="flex lg:hidden overflow-x-auto gap-4 pt-2.5 text-xs border-t border-slate-800/80 mt-2 text-slate-400">
         <a href="#about" class="whitespace-nowrap hover:text-cyan-300" data-i18n="nav_about">About Verter</a>
+        <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap text-emerald-400 font-semibold" data-i18n="nav_gpu_health">⚡ GPU Health ↗</a>
         <a href="#help" class="whitespace-nowrap text-cyan-400 font-semibold" data-i18n="nav_help">Help & FAQ</a>
         <a href="#rca" class="whitespace-nowrap hover:text-cyan-300" data-i18n="nav_rca">Fleet RCA</a>
         <a href="#literal" class="whitespace-nowrap hover:text-cyan-300">Vault</a>
@@ -132,14 +136,14 @@
           <div class="space-y-3 pt-2">
             <!-- Action buttons -->
             <div class="flex flex-wrap items-center gap-2.5">
+              <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold font-mono transition-all flex items-center gap-2 cursor-pointer shadow-md">
+                <span data-i18n="btn_gpu_health">⚡ GPU Health Score (gpu.glyphai.ie) ↗</span>
+              </a>
               <a href="#help" class="px-3.5 py-2 rounded-lg bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 text-xs font-semibold transition-colors border border-indigo-500/40 flex items-center gap-2 cursor-pointer shadow-sm">
                 <span data-i18n="btn_visitor_help">Visitor Help & FAQ ↓</span>
               </a>
               <a href="https://verter.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-xs font-bold font-mono transition-all flex items-center gap-2 cursor-pointer shadow-md">
                 <span>Open verter.glyphai.ie ↗</span>
-              </a>
-              <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-medium transition-colors border border-slate-800 flex items-center gap-1.5">
-                <span>gpu.glyphai.ie ↗</span>
               </a>
               <a href="https://github.com/Moon-stone-AI/verter-site" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-medium transition-colors border border-slate-800 flex items-center gap-1.5">
                 <span class="font-mono text-cyan-400">verter-site ↗</span>
@@ -448,6 +452,7 @@
       const translations = {
         en: {
           nav_about: 'About Verter',
+          nav_gpu_health: '⚡ GPU Health Score ↗',
           nav_help: 'Help & FAQ',
           nav_rca: 'Fleet RCA (5,000 servers)',
           nav_literal: 'Literal Module v2',
@@ -461,6 +466,7 @@
           phil_quote: '"GlyphAI is a contract of meanings. In the question of Schrödinger\'s cat, the primary point is what we agreed to consider a cat. Without a codebook, a glyph remains undefined. Most failures in the world stem from flawed definitions of concepts."',
           phil_author: '— Vitali de Mille (vitali.demille@glyphai.ie), author of GlyphAI',
           btn_visitor_help: 'Visitor Help & FAQ ↓',
+          btn_gpu_health: '⚡ GPU Health Score (gpu.glyphai.ie) ↗',
           help_heading: 'Visitor Help Center, Theory & FAQ',
           help_subheading: 'Everything about the GlyphAI platform, 5,000 H100 server crash investigations, client-side HMAC Vault privacy, and the "Contract of Meanings" paradigm.',
           cat_all: 'All Topics',
@@ -511,9 +517,6 @@
           mem_tag: 'ARTIFICIAL MIND MEMORY & GITHUB',
           mem_heading: 'Repository Moon-stone-AI/verter-memory',
           mem_desc: 'All validated semantic atoms, compression codebooks, and compliance rules are synced to branch main of Moon-stone-AI/verter-memory automatically via GitHub API.',
-          dns_diag_title: 'DNS DIAGNOSTIC: WHY THE SITE IS "NOT SECURE" & INVALID DNS ERROR',
-          dns_diag_desc: 'In your DNS management panel (4th screenshot), the CNAME for <strong>verter</strong> is currently set to <strong>verter.glyphai.ie</strong>. This points back to itself in a circular loop! GitHub Pages cannot verify the domain and cannot issue the TLS certificate, keeping the site on "Not secure" (HTTP).',
-          dns_diag_action: 'Once updated in DNS, click "Check again" in GitHub Pages Settings → Pages. The TLS certificate will finalize and "Enforce HTTPS" will automatically activate!',
           auth_tag: 'AUTHOR & CONTACT',
           auth_desc: '20+ years across hyperscale and mission-critical datacenters. Author of the GlyphAI monograph (Zenodo). Mission: "Protect humanity, not unleash evil."',
           auth_zenodo: 'Zenodo Monograph ↗',
@@ -521,10 +524,8 @@
           foot_formula: 'Form ≠ Content'
         },
         ru: {
-          dns_diag_title: 'ДИАГНОСТИКА: ПОЧЕМУ САЙТ "NOT SECURE" И ОШИБКА DNS CHECK',
-          dns_diag_desc: 'В настройках вашего DNS-провайдера (на 4-м скриншоте) запись <strong>verter</strong> указывает сама на себя: <strong>verter.glyphai.ie</strong>. Из-за этого возникает зацикливание DNS, GitHub Pages не может подтвердить домен и выпустить SSL-сертификат (поэтому написано <em>Not secure</em>).',
-          dns_diag_action: 'После исправления DNS нажмите «Check again» в GitHub Pages (скриншот 5). Сертификат выпустится за 5–15 минут, и галочка «Enforce HTTPS» станет активной!',
           nav_about: 'О Вертере',
+          nav_gpu_health: '⚡ GPU Индекс Здоровья ↗',
           nav_help: 'Справка & FAQ',
           nav_rca: 'Fleet RCA (5000 серверов)',
           nav_literal: 'Literal Module v2',
@@ -538,6 +539,7 @@
           phil_quote: '«GlyphAI — это договор о смыслах. В споре о коте Шрёдингера главное — что мы договорились считать котом. Без кодбука глиф неопределен. Большинство сбоев в мире происходят из-за неверного определения понятий.»',
           phil_author: '— Виталий де Милль (vitali.demille@glyphai.ie), автор GlyphAI',
           btn_visitor_help: 'Справка для посетителей & FAQ ↓',
+          btn_gpu_health: '⚡ GPU Индекс Здоровья (gpu.glyphai.ie) ↗',
           help_heading: 'Справка, теория и ответы на вопросы (FAQ)',
           help_subheading: 'Всё о платформе GlyphAI, расследовании падения 5,000 серверов H100, криптографическом сейфе HMAC Vault и формуле «Договор о смыслах».',
           cat_all: 'Все темы',
@@ -636,6 +638,148 @@
             btnMask.innerText = lang === 'ru' ? 'Применить HMAC Vault' : 'Apply HMAC Vault';
           }
         }
+
+        // Update GPU simulation strings
+        if (typeof updateGpuSimulation === 'function') {
+          updateGpuSimulation();
+        }
+      }
+
+      function updateGpuSimulation() {
+        const tempEl = document.getElementById('gpuTempSlider');
+        if (!tempEl) return;
+        const temp = parseFloat(tempEl.value);
+        const delta = parseFloat(document.getElementById('gpuDeltaSlider').value);
+        const power = parseFloat(document.getElementById('gpuPowerSlider').value);
+        const flagRemap = document.getElementById('flagRowRemap').checked;
+        const flagNvlink = document.getElementById('flagNvlinkCrc').checked;
+        const flagDbe = document.getElementById('flagEccDbe').checked;
+        const flagSdc = document.getElementById('flagSdcFail').checked;
+
+        document.getElementById('gpuTempDisplay').innerText = temp + '°C';
+        document.getElementById('gpuDeltaDisplay').innerText = delta + '°C';
+        document.getElementById('gpuPowerDisplay').innerText = power + ' W';
+
+        // Deductions
+        let memPen = 0;
+        let xidPen = 0;
+        let linkPen = 0;
+        let thrPen = 0;
+        let diagPen = 0;
+        const agePen = 0.6; // 4820 hours
+
+        if (flagRemap) memPen += 16;
+        if (flagDbe) { memPen += 24; xidPen += 24; }
+        if (flagNvlink) linkPen += 10;
+        if (flagSdc) diagPen += 10;
+        if (temp >= 88) thrPen += 5;
+        if (temp >= 95) thrPen += 5;
+
+        memPen = Math.min(memPen, 35);
+        xidPen = Math.min(xidPen, 25);
+        linkPen = Math.min(linkPen, 15);
+        thrPen = Math.min(thrPen, 10);
+        diagPen = Math.min(diagPen, 10);
+
+        const totalDeductions = memPen + xidPen + linkPen + thrPen + diagPen + agePen;
+        let score = Math.max(0, Math.round((100 - totalDeductions) * 10) / 10);
+
+        if (flagDbe) score = 0.0;
+        else if (flagSdc && score > 10) score = 10.0;
+
+        // Arrhenius calculation: T_base = 65 C = 338.15 K, T_j = temp + 273.15 K, Ea = 0.7 eV, kB = 8.617e-5 eV/K
+        const kB = 8.617333262145e-5;
+        const Ea = 0.7;
+        const Tbase = 65 + 273.15;
+        const Tj = temp + 273.15;
+        const af = Math.exp((Ea / kB) * (1 / Tbase - 1 / Tj));
+        const failRate = Math.min(99.9, Math.round(0.08 * af * (flagDbe ? 100 : (flagRemap ? 5 : 1)) * 100) / 100);
+
+        // Update DOM
+        document.getElementById('gpuScoreValue').innerText = score.toFixed(1);
+        document.getElementById('gpuTotalPenalties').innerText = `TOTAL DEDUCTIONS: -${totalDeductions.toFixed(1)} PTS`;
+        document.getElementById('penMemory').innerText = `-${memPen} pts`;
+        document.getElementById('penSevere').innerText = `-${xidPen} pts`;
+        document.getElementById('penLinks').innerText = `-${linkPen} pts`;
+        document.getElementById('penThrottle').innerText = `-${thrPen} pts`;
+        document.getElementById('penDiag').innerText = `-${diagPen} pts`;
+        document.getElementById('penAge').innerText = `-${agePen} pts`;
+
+        document.getElementById('gpuArrheniusFactor').innerText = `AF = ${af.toFixed(2)}x`;
+        document.getElementById('gpuFailRate').innerText = `${failRate.toFixed(2)}%`;
+
+        const badge = document.getElementById('gpuTierBadge');
+        const verdictBox = document.getElementById('gpuVerdictBox');
+        const verdictText = document.getElementById('gpuVerdictText');
+
+        if (score >= 90) {
+          badge.className = 'px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+          badge.innerText = currentLang === 'ru' ? 'ОТЛИЧНОЕ (≥ 90)' : 'EXCELLENT (≥ 90)';
+          verdictBox.className = 'p-4 rounded-xl border border-emerald-500/40 bg-emerald-950/20 space-y-1.5 mt-2';
+          verdictText.innerText = currentLang === 'ru' 
+            ? 'Оптимальный рабочий диапазон. Градиент кремния и ошибки памяти HBM3 в норме. Карта допущена к приоритетному LLM-обучению.'
+            : 'Nominal operational window. Silicon thermal gradient and HBM3 ECC rates are within baseline specs. Card is rated for high-priority training runs.';
+        } else if (score >= 75) {
+          badge.className = 'px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40';
+          badge.innerText = currentLang === 'ru' ? 'ХОРОШЕЕ (75–89)' : 'GOOD (75–89)';
+          verdictBox.className = 'p-4 rounded-xl border border-cyan-500/40 bg-cyan-950/20 space-y-1.5 mt-2';
+          verdictText.innerText = currentLang === 'ru'
+            ? 'Умеренный износ или повышенная температура. Рекомендуется мониторинг телеметрии BMC без снятия узла.'
+            : 'Moderate wear or elevated thermal profile. BMC telemetry monitoring recommended without node evacuation.';
+        } else if (score >= 50) {
+          badge.className = 'px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40';
+          badge.innerText = currentLang === 'ru' ? 'ВНИМАНИЕ (50–74)' : 'CAUTION (50–74)';
+          verdictBox.className = 'p-4 rounded-xl border border-amber-500/40 bg-amber-950/20 space-y-1.5 mt-2';
+          verdictText.innerText = currentLang === 'ru'
+            ? 'Зафиксирована деградация шины или переназначение строк памяти HBM3. Запланируйте плановую замену в ближайшее окно обслуживания.'
+            : 'Bus degradation or row remap detected. Schedule planned replacement during next regular maintenance window.';
+        } else {
+          badge.className = 'px-3 py-1 rounded-full text-xs font-mono font-bold bg-red-500/20 text-red-300 border border-red-500/40';
+          badge.innerText = currentLang === 'ru' ? 'КРИТИЧЕСКИЙ СБОЙ / RMA' : 'CRITICAL FAILURE / RMA';
+          verdictBox.className = 'p-4 rounded-xl border border-red-500/40 bg-red-950/20 space-y-1.5 mt-2';
+          verdictText.innerText = currentLang === 'ru'
+            ? 'КРИТИЧЕСКИЙ СБОЙ: Неисправимая ошибка памяти (DBE Xid 48) или сбой вычислений SDC. Немедленно изолируйте узел и оформите заявку на RMA вендору.'
+            : 'CRITICAL EVENT: Uncontained memory error (DBE Xid 48) or SDC tensor failure. Immediately isolate node and dispatch RMA vendor ticket.';
+        }
+      }
+
+      function injectGpuVector(type) {
+        const tempSlider = document.getElementById('gpuTempSlider');
+        const deltaSlider = document.getElementById('gpuDeltaSlider');
+        const powerSlider = document.getElementById('gpuPowerSlider');
+        const flagRemap = document.getElementById('flagRowRemap');
+        const flagNvlink = document.getElementById('flagNvlinkCrc');
+        const flagDbe = document.getElementById('flagEccDbe');
+        const flagSdc = document.getElementById('flagSdcFail');
+
+        flagRemap.checked = false;
+        flagNvlink.checked = false;
+        flagDbe.checked = false;
+        flagSdc.checked = false;
+
+        if (type === 'healthy') {
+          tempSlider.value = 64;
+          deltaSlider.value = 8.5;
+          powerSlider.value = 685;
+        } else if (type === 'thermal') {
+          tempSlider.value = 93;
+          deltaSlider.value = 18.0;
+          powerSlider.value = 720;
+        } else if (type === 'remap') {
+          tempSlider.value = 72;
+          deltaSlider.value = 11.0;
+          flagRemap.checked = true;
+        } else if (type === 'nvlink') {
+          tempSlider.value = 70;
+          deltaSlider.value = 10.0;
+          flagNvlink.checked = true;
+        } else if (type === 'dbe') {
+          tempSlider.value = 84;
+          deltaSlider.value = 15.0;
+          flagDbe.checked = true;
+          flagRemap.checked = true;
+        }
+        updateGpuSimulation();
       }
 
       function toggleFaq(btn) {
