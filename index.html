@@ -39,10 +39,12 @@
  * Applied across verter.glyphai.ie, gpu.glyphai.ie, and fleet-rca.html
  */
 
-:root {
-  /* --- The Raw Color Space --- */
+:root,
+html.dark {
+  /* --- Dark Theme: Deep Server-Room Obsidian Base --- */
   --bg-monolith: #0B0D11;       /* Deep server-room obsidian base */
   --bg-surface: #14171E;        /* Box panels, telemetry sections */
+  --bg-surface-elevated: #1C212B; /* Raised cards and popovers */
   --border-utility: #242A36;    /* Strict 1px alignment grids */
   
   /* --- Text & Semantic Content --- */
@@ -57,6 +59,66 @@
   /* --- Micro-Typography --- */
   --font-data: "JetBrains Mono", "SF Mono", monospace;
   --font-editorial: "Inter", -apple-system, sans-serif;
+
+  color-scheme: dark;
+}
+
+html.light {
+  /* --- Light Theme: Cleanroom Silicon Blueprint --- */
+  --bg-monolith: #F8FAFC;       /* Cleanroom pearl-slate base */
+  --bg-surface: #FFFFFF;        /* Pristine cards and telemetry panels */
+  --bg-surface-elevated: #F1F5F9; /* Subtle elevated surfaces */
+  --border-utility: #CBD5E1;    /* Crisp 1px division lines */
+
+  /* Text & Semantic Content */
+  --text-primary: #0F172A;      /* Deep midnight slate for high legibility */
+  --text-muted: #475569;        /* Technical slate gray for scaffolding */
+
+  /* Functional Accents (Calibrated for white background contrast) */
+  --accent-coolant: #007799;    /* Deep Coolant Sky (WCAG AA 4.5:1 on white) */
+  --accent-amber: #C26200;      /* Terminal Amber for light mode */
+  --accent-vault: #6941C6;      /* Deep Vault Purple */
+
+  /* Micro-Typography */
+  --font-data: "JetBrains Mono", "SF Mono", monospace;
+  --font-editorial: "Inter", -apple-system, sans-serif;
+
+  color-scheme: light;
+}
+
+/* Light Mode Overrides for Core UI Elements */
+html.light .bg-slate-950 { background-color: var(--bg-monolith) !important; }
+html.light .bg-slate-900 { background-color: var(--bg-surface) !important; }
+html.light .bg-slate-900\/40,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/90 { background-color: var(--bg-surface) !important; }
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/80 { background-color: var(--bg-surface-elevated) !important; }
+html.light .border-slate-800,
+html.light .border-slate-800\/60,
+html.light .border-slate-800\/80,
+html.light .border-slate-700 { border-color: var(--border-utility) !important; }
+html.light .text-white,
+html.light .text-slate-100 { color: var(--text-primary) !important; }
+html.light .text-slate-200,
+html.light .text-slate-300 { color: #1E293B !important; }
+html.light .text-slate-400,
+html.light .text-slate-500 { color: var(--text-muted) !important; }
+html.light .hover\:bg-slate-800:hover,
+html.light .hover\:bg-slate-900:hover { background-color: #E2E8F0 !important; }
+
+html.light .panel-box,
+html.light .kpi-card,
+html.light .node-meta-card {
+  background: var(--bg-surface);
+  border-color: var(--border-utility);
+}
+
+html.light .diagnostic-terminal,
+html.light .analysis-core-terminal {
+  background-color: #0B0D11;
+  color: #FFFFFF;
 }
 
 /* Base Body Application */
@@ -243,6 +305,10 @@ body {
         <a href="https://github.com/Moon-stone-AI" target="_blank">[ Repository ]</a>
       </nav>
       <div class="flex items-center gap-2.5 shrink-0">
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[var(--border-utility)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] transition-all cursor-pointer font-mono text-xs shadow-sm" title="Toggle Light / Dark theme">
+          <span id="themeIcon">☀️</span>
+          <span id="themeLabel" class="hidden sm:inline text-[11px] font-medium text-[var(--text-muted)]">Light</span>
+        </button>
         <div class="flex items-center rounded-lg bg-slate-900 border border-slate-800 p-0.5 text-xs font-mono">
           <button id="langEnBtn" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded transition-colors font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 cursor-pointer">EN</button>
           <button id="langRuBtn" onclick="switchLanguage('ru')" class="px-2.5 py-1 rounded transition-colors text-slate-400 hover:text-slate-200 cursor-pointer">RU</button>
@@ -893,6 +959,36 @@ body {
 
     <!-- Interactive script with full English/Russian dictionary -->
     <script>
+      
+      let currentTheme = localStorage.getItem('glyphai_theme') || 'dark';
+
+      function applyTheme(theme) {
+        currentTheme = theme;
+        try { localStorage.setItem('glyphai_theme', theme); } catch(e) {}
+        const root = document.documentElement;
+        const icon = document.getElementById('themeIcon');
+        const label = document.getElementById('themeLabel');
+        const btn = document.getElementById('themeToggleBtn');
+
+        if (theme === 'light') {
+          root.classList.remove('dark');
+          root.classList.add('light');
+          if (icon) icon.innerText = '🌙';
+          if (label) label.innerText = 'Dark';
+          if (btn) btn.title = currentLang === 'ru' ? 'Включить тёмную тему' : 'Switch to Dark theme';
+        } else {
+          root.classList.remove('light');
+          root.classList.add('dark');
+          if (icon) icon.innerText = '☀️';
+          if (label) label.innerText = 'Light';
+          if (btn) btn.title = currentLang === 'ru' ? 'Включить светлую тему' : 'Switch to Light theme';
+        }
+      }
+
+      function toggleTheme() {
+        applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      }
+
       let currentLang = localStorage.getItem('glyphai_lang') || 'en';
       let isMasked = false;
 
@@ -1556,6 +1652,7 @@ body {
 
       // Initialize language on page load
       window.addEventListener('DOMContentLoaded', () => {
+        applyTheme(currentTheme);
         switchLanguage(currentLang);
       });
     </script>
