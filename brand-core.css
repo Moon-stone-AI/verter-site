@@ -1,0 +1,186 @@
+/**
+ * GlyphAI Global Design Tokens & Variable Sheet (brand-core.css)
+ * Applied across verter.glyphai.ie, gpu.glyphai.ie, and fleet-rca.html
+ */
+
+:root {
+  /* --- The Raw Color Space --- */
+  --bg-monolith: #0B0D11;       /* Deep server-room obsidian base */
+  --bg-surface: #14171E;        /* Box panels, telemetry sections */
+  --border-utility: #242A36;    /* Strict 1px alignment grids */
+  
+  /* --- Text & Semantic Content --- */
+  --text-primary: #FFFFFF;      /* Stark white for core content & headers */
+  --text-muted: #848D9E;        /* Silicon Gray for scaffolding, spaces, timelines */
+  
+  /* --- Functional Accents --- */
+  --accent-coolant: #00E5FF;    /* Coolant Cyan: Normal states, Verter synchronization */
+  --accent-amber: #FFA726;      /* Terminal Amber: Incidents, anomalies, Xid panics */
+  --accent-vault: #9575CD;      /* Vault Purple: Literal Module v2 & HMAC masking */
+
+  /* --- Micro-Typography --- */
+  --font-data: "JetBrains Mono", "SF Mono", monospace;
+  --font-editorial: "Inter", -apple-system, sans-serif;
+}
+
+/* Base Body Application */
+body {
+  background-color: var(--bg-monolith);
+  color: var(--text-primary);
+  font-family: var(--font-editorial);
+  margin: 0;
+  padding: 0;
+}
+
+/* Global Navigation Component */
+.glyph-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1.5rem;
+  background: var(--bg-monolith);
+  border-bottom: 1px solid var(--border-utility);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 28px;
+  width: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-name {
+  font-family: var(--font-data);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-size: 1.05rem;
+}
+
+.brand-name .sub-system {
+  color: var(--accent-coolant);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  margin-left: 0.25rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-links a {
+  font-family: var(--font-data);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  padding-bottom: 2px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-coolant);
+  border-bottom: 2px solid var(--accent-coolant);
+}
+
+/* Philosophy Banner Utility */
+.philosophy-banner-block {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-utility);
+  border-left: 3px solid var(--accent-coolant);
+  font-family: var(--font-data);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+}
+
+.philosophy-quote {
+  font-family: var(--font-data);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.philosophy-author {
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Cryptographic Shielding & HMAC Vault Token Glowing */
+.vault-token {
+  font-family: var(--font-data);
+  background: rgba(149, 117, 205, 0.15);
+  color: var(--accent-vault);
+  border: 1px solid rgba(149, 117, 205, 0.5);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(149, 117, 205, 0.45);
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.vault-token:hover {
+  background: rgba(149, 117, 205, 0.25);
+  box-shadow: 0 0 18px rgba(149, 117, 205, 0.7);
+}
+
+/* Flashing Survivor Node in Telemetry Grids */
+@keyframes survivor-pulse {
+  0%, 100% {
+    background-color: var(--accent-amber);
+    box-shadow: 0 0 20px rgba(255, 167, 38, 0.9), inset 0 0 8px #ffffff;
+    transform: scale(1.08);
+  }
+  50% {
+    background-color: #e65100;
+    box-shadow: 0 0 8px rgba(255, 167, 38, 0.4);
+    transform: scale(1);
+  }
+}
+
+.survivor-node-active {
+  animation: survivor-pulse 1.2s infinite ease-in-out;
+  border: 1px solid #ffffff !important;
+  cursor: pointer;
+}
+
+/* Compression Metric Header */
+.compression-hero-metric {
+  font-family: var(--font-data);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--accent-coolant);
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.35);
+  line-height: 1;
+}
+
+/* Analysis Core Terminal */
+.analysis-core-terminal {
+  background-color: #000000;
+  border: 1px solid var(--border-utility);
+  font-family: var(--font-data);
+  color: var(--text-primary);
+}
