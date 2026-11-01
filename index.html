@@ -33,6 +33,194 @@
       }
     </script>
     <style>
+      /* Inlined brand-core.css design tokens & layouts */
+/**
+ * GlyphAI Global Design Tokens & Variable Sheet (brand-core.css)
+ * Applied across verter.glyphai.ie, gpu.glyphai.ie, and fleet-rca.html
+ */
+
+:root {
+  /* --- The Raw Color Space --- */
+  --bg-monolith: #0B0D11;       /* Deep server-room obsidian base */
+  --bg-surface: #14171E;        /* Box panels, telemetry sections */
+  --border-utility: #242A36;    /* Strict 1px alignment grids */
+  
+  /* --- Text & Semantic Content --- */
+  --text-primary: #FFFFFF;      /* Stark white for core content & headers */
+  --text-muted: #848D9E;        /* Silicon Gray for scaffolding, spaces, timelines */
+  
+  /* --- Functional Accents --- */
+  --accent-coolant: #00E5FF;    /* Coolant Cyan: Normal states, Verter synchronization */
+  --accent-amber: #FFA726;      /* Terminal Amber: Incidents, anomalies, Xid panics */
+  --accent-vault: #9575CD;      /* Vault Purple: Literal Module v2 & HMAC masking */
+
+  /* --- Micro-Typography --- */
+  --font-data: "JetBrains Mono", "SF Mono", monospace;
+  --font-editorial: "Inter", -apple-system, sans-serif;
+}
+
+/* Base Body Application */
+body {
+  background-color: var(--bg-monolith);
+  color: var(--text-primary);
+  font-family: var(--font-editorial);
+  margin: 0;
+  padding: 0;
+}
+
+/* Global Navigation Component */
+.glyph-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1.5rem;
+  background: var(--bg-monolith);
+  border-bottom: 1px solid var(--border-utility);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 28px;
+  width: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-name {
+  font-family: var(--font-data);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-size: 1.05rem;
+}
+
+.brand-name .sub-system {
+  color: var(--accent-coolant);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  margin-left: 0.25rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-links a {
+  font-family: var(--font-data);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  padding-bottom: 2px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-coolant);
+  border-bottom: 2px solid var(--accent-coolant);
+}
+
+/* Philosophy Banner Utility */
+.philosophy-banner-block {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-utility);
+  border-left: 3px solid var(--accent-coolant);
+  font-family: var(--font-data);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+}
+
+.philosophy-quote {
+  font-family: var(--font-data);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.philosophy-author {
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Cryptographic Shielding & HMAC Vault Token Glowing */
+.vault-token {
+  font-family: var(--font-data);
+  background: rgba(149, 117, 205, 0.15);
+  color: var(--accent-vault);
+  border: 1px solid rgba(149, 117, 205, 0.5);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(149, 117, 205, 0.45);
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.vault-token:hover {
+  background: rgba(149, 117, 205, 0.25);
+  box-shadow: 0 0 18px rgba(149, 117, 205, 0.7);
+}
+
+/* Flashing Survivor Node in Telemetry Grids */
+@keyframes survivor-pulse {
+  0%, 100% {
+    background-color: var(--accent-amber);
+    box-shadow: 0 0 20px rgba(255, 167, 38, 0.9), inset 0 0 8px #ffffff;
+    transform: scale(1.08);
+  }
+  50% {
+    background-color: #e65100;
+    box-shadow: 0 0 8px rgba(255, 167, 38, 0.4);
+    transform: scale(1);
+  }
+}
+
+.survivor-node-active {
+  animation: survivor-pulse 1.2s infinite ease-in-out;
+  border: 1px solid #ffffff !important;
+  cursor: pointer;
+}
+
+/* Compression Metric Header */
+.compression-hero-metric {
+  font-family: var(--font-data);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--accent-coolant);
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.35);
+  line-height: 1;
+}
+
+/* Analysis Core Terminal */
+.analysis-core-terminal {
+  background-color: #000000;
+  border: 1px solid var(--border-utility);
+  font-family: var(--font-data);
+  color: var(--text-primary);
+}
+
       ::-webkit-scrollbar { width: 6px; height: 6px; }
       ::-webkit-scrollbar-track { background: var(--bg-monolith); }
       ::-webkit-scrollbar-thumb { background: var(--border-utility); border-radius: 3px; }
@@ -42,12 +230,12 @@
   <body class="bg-slate-950 text-slate-100 antialiased font-sans selection:bg-cyan-500/20 selection:text-cyan-200 min-h-screen flex flex-col">
     
     <!-- Global Header Configuration (Matching cross-subdomain blueprint) -->
-    <header class="glyph-nav">
-      <div class="brand-block">
-        <img src="assets/glyphai-logo.jpg" alt="GlyphAI Logo" class="brand-logo" style="object-fit: contain; background: rgba(255,255,255,0.06); padding: 2px; border-radius: 6px; border: 1px solid var(--border-utility);">
+    <header class="glyph-nav flex flex-wrap md:flex-nowrap justify-between items-center px-4 sm:px-8 py-3.5 bg-[#0B0D11] border-b border-[#242A36] sticky top-0 z-50">
+      <div class="brand-block flex items-center gap-3 shrink-0">
+        <img src="data:image/jpeg;base64,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" alt="GlyphAI Logo" class="brand-logo" style="object-fit: contain; background: rgba(255,255,255,0.06); padding: 2px; border-radius: 6px; border: 1px solid var(--border-utility);">
         <span class="brand-name">GlyphAI <span class="sub-system">// VERTER</span></span>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links flex flex-wrap items-center gap-4 sm:gap-6 font-mono text-xs">
         <a href="https://www.glyphai.ie/" target="_blank">glyphai.ie ↗</a>
         <a href="#mind" class="active">Artificial Mind</a>
         <a href="https://gpu.glyphai.ie/">GPU Health</a>
@@ -78,7 +266,7 @@
 
           <div class="flex items-start gap-4">
             <div class="hidden sm:block p-2 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-utility)] shadow-xl shrink-0">
-              <img src="assets/glyphai-logo.jpg" alt="GlyphAI Knot" class="w-16 h-16 rounded-xl object-contain">
+              <img src="data:image/jpeg;base64,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" alt="GlyphAI Knot" class="w-16 h-16 rounded-xl object-contain">
             </div>
             <div class="space-y-1.5">
               <div class="text-xs font-mono tracking-wider uppercase text-[var(--accent-coolant)] font-bold">
