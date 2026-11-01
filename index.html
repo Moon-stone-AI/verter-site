@@ -10,7 +10,8 @@
     <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="brand-core.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -18,13 +19,13 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
               mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
               slate: {
                 850: '#111827',
-                950: '#070b12',
+                950: '#0B0D11',
               }
             }
           }
@@ -33,66 +34,31 @@
     </script>
     <style>
       ::-webkit-scrollbar { width: 6px; height: 6px; }
-      ::-webkit-scrollbar-track { background: #070b12; }
-      ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+      ::-webkit-scrollbar-track { background: var(--bg-monolith); }
+      ::-webkit-scrollbar-thumb { background: var(--border-utility); border-radius: 3px; }
       .faq-content { transition: max-height 0.3s ease-out, opacity 0.2s ease; }
     </style>
   <script src="/_aistudio-iframe.js?v=1f94f900"></script></head>
   <body class="bg-slate-950 text-slate-100 antialiased font-sans selection:bg-cyan-500/20 selection:text-cyan-200 min-h-screen flex flex-col">
     
-    <!-- Top Global Header -->
-    <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-4 sm:px-6 py-3.5 transition-colors">
-      <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
-        <a href="#" class="flex items-baseline gap-2 shrink-0">
-          <span class="text-xl font-bold tracking-tight text-white">GlyphAI</span>
-          <span class="text-xs font-mono text-cyan-400 font-semibold tracking-wider">/ VERTER</span>
-        </a>
-
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-6 text-xs font-medium text-slate-400">
-          <a href="#about" class="hover:text-cyan-300 transition-colors" data-i18n="nav_about">About Verter</a>
-          <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/20 transition-all font-semibold flex items-center gap-1.5" data-i18n="nav_gpu_health">
-            <span>⚡ GPU Health Score ↗</span>
-          </a>
-          <a href="#help" class="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors flex items-center gap-1" data-i18n="nav_help">
-            <span>Help & FAQ</span>
-          </a>
-          <a href="#rca" class="hover:text-cyan-300 transition-colors" data-i18n="nav_rca">Fleet RCA (5,000 servers)</a>
-          <a href="#literal" class="hover:text-cyan-300 transition-colors" data-i18n="nav_literal">Literal Module v2</a>
-          <a href="#memory" class="hover:text-cyan-300 transition-colors" data-i18n="nav_memory">Memory Repo</a>
-          <a href="#contact" class="hover:text-cyan-300 transition-colors" data-i18n="nav_contact">Contact</a>
-        </nav>
-
-        <!-- Right Side Actions & Language Switcher -->
-        <div class="flex items-center gap-2.5 shrink-0">
-          <!-- Language Toggle Buttons (EN primary by default) -->
-          <div class="flex items-center rounded-lg bg-slate-900 border border-slate-800 p-0.5 text-xs font-mono">
-            <button id="langEnBtn" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded transition-colors font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
-              EN
-            </button>
-            <button id="langRuBtn" onclick="switchLanguage('ru')" class="px-2.5 py-1 rounded transition-colors text-slate-400 hover:text-slate-200">
-              RU
-            </button>
-          </div>
-
-          <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex px-3 py-1.5 text-xs font-medium text-slate-300 bg-slate-900 hover:bg-slate-800 rounded-md border border-slate-800 transition-colors">
-            gpu.glyphai.ie ↗
-          </a>
-          <a href="https://github.com/Moon-stone-AI/verter-site" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 text-xs font-medium text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-md transition-all font-mono font-bold">
-            verter-site ↗
-          </a>
-        </div>
+    <!-- Global Header Configuration (Matching cross-subdomain blueprint) -->
+    <header class="glyph-nav">
+      <div class="brand-block">
+        <img src="assets/glyphai-logo.jpg" alt="GlyphAI Logo" class="brand-logo" style="object-fit: contain; background: rgba(255,255,255,0.06); padding: 2px; border-radius: 6px; border: 1px solid var(--border-utility);">
+        <span class="brand-name">GlyphAI <span class="sub-system">// VERTER</span></span>
       </div>
-
-      <!-- Mobile sub-bar -->
-      <div class="flex lg:hidden overflow-x-auto gap-4 pt-2.5 text-xs border-t border-slate-800/80 mt-2 text-slate-400">
-        <a href="#about" class="whitespace-nowrap hover:text-cyan-300" data-i18n="nav_about">About Verter</a>
-        <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap text-emerald-400 font-semibold" data-i18n="nav_gpu_health">⚡ GPU Health ↗</a>
-        <a href="#help" class="whitespace-nowrap text-cyan-400 font-semibold" data-i18n="nav_help">Help & FAQ</a>
-        <a href="#rca" class="whitespace-nowrap hover:text-cyan-300" data-i18n="nav_rca">Fleet RCA</a>
-        <a href="#literal" class="whitespace-nowrap hover:text-cyan-300">Vault</a>
-        <a href="#memory" class="whitespace-nowrap hover:text-cyan-300" data-i18n="nav_memory">Memory</a>
-        <a href="#contact" class="whitespace-nowrap hover:text-cyan-300" data-i18n="nav_contact">Contact</a>
+      <nav class="nav-links">
+        <a href="https://www.glyphai.ie/" target="_blank">glyphai.ie ↗</a>
+        <a href="https://verter.glyphai.ie/" class="active">Artificial Mind</a>
+        <a href="https://gpu.glyphai.ie/">GPU Health</a>
+        <a href="https://gpu.glyphai.ie/fleet-rca.html">Fleet RCA</a>
+        <a href="https://github.com/Moon-stone-AI" target="_blank">[ Repository ]</a>
+      </nav>
+      <div class="flex items-center gap-2.5 shrink-0">
+        <div class="flex items-center rounded-lg bg-slate-900 border border-slate-800 p-0.5 text-xs font-mono">
+          <button id="langEnBtn" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded transition-colors font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 cursor-pointer">EN</button>
+          <button id="langRuBtn" onclick="switchLanguage('ru')" class="px-2.5 py-1 rounded transition-colors text-slate-400 hover:text-slate-200 cursor-pointer">RU</button>
+        </div>
       </div>
     </header>
 
@@ -110,25 +76,36 @@
             <span class="text-slate-400">verter.glyphai.ie</span>
           </div>
 
-          <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            <span data-i18n="hero_title_prefix">Verter — Artificial Mind</span> <br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400" data-i18n="hero_title_accent">
-              Semantic Compression & Memory
-            </span>
-          </h1>
+          <div class="flex items-start gap-4">
+            <div class="hidden sm:block p-2 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-utility)] shadow-xl shrink-0">
+              <img src="assets/glyphai-logo.jpg" alt="GlyphAI Knot" class="w-16 h-16 rounded-xl object-contain">
+            </div>
+            <div class="space-y-1.5">
+              <div class="text-xs font-mono tracking-wider uppercase text-[var(--accent-coolant)] font-bold">
+                GLYPHAI PLATFORM // ARTIFICIAL MIND ARCHITECTURE
+              </div>
+              <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                <span data-i18n="hero_title_prefix">Verter — Artificial Mind</span> <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 font-mono text-2xl sm:text-4xl" data-i18n="hero_title_accent">
+                  verter.glyphai.ie
+                </span>
+              </h1>
+            </div>
+          </div>
 
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="hero_desc">
             Built upon the monograph and mathematical theory of <strong>GlyphAI</strong>. Engineered for root-cause triage across massive GPU clusters, compressing server telemetry by 26,440x and securely synchronizing knowledge with zero raw data leakage.
           </p>
 
-          <div class="p-4 sm:p-5 rounded-xl bg-slate-950/80 border border-cyan-900/40 space-y-2">
-            <div class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider" data-i18n="phil_tag">
+          <!-- The Philosophy Banner: Framed strictly using --font-data with 1px solid var(--border-utility) -->
+          <div class="philosophy-banner-block">
+            <div style="font-family: var(--font-data); font-size: 0.75rem; color: var(--accent-coolant); font-weight: 700; text-transform: uppercase; margin-bottom: 0.35rem;" data-i18n="phil_tag">
               Creator Philosophy · GlyphAI
             </div>
-            <p class="text-sm text-slate-200 italic font-serif leading-relaxed" data-i18n="phil_quote">
+            <p class="philosophy-quote" data-i18n="phil_quote">
               "GlyphAI is a contract of meanings. In the question of Schrödinger's cat, the primary point is what we agreed to consider a cat. Without a codebook, a glyph remains undefined. Most failures in the world stem from flawed definitions of concepts."
             </p>
-            <div class="text-[11px] text-slate-400 font-mono text-right" data-i18n="phil_author">
+            <div class="philosophy-author" data-i18n="phil_author">
               — Vitali de Mille (vitali.demille@glyphai.ie), author of GlyphAI
             </div>
           </div>
@@ -136,6 +113,9 @@
           <div class="space-y-3 pt-2">
             <!-- Action buttons -->
             <div class="flex flex-wrap items-center gap-2.5">
+              <a href="https://gpu.glyphai.ie/fleet-rca.html" class="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-300 text-xs font-bold font-mono transition-all flex items-center gap-2 border border-slate-700">
+                <span>Fleet RCA (5,000 servers) ↗</span>
+              </a>
               <a href="https://gpu.glyphai.ie/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold font-mono transition-all flex items-center gap-2 cursor-pointer shadow-md">
                 <span data-i18n="btn_gpu_health">⚡ GPU Health Score (gpu.glyphai.ie) ↗</span>
               </a>
@@ -834,7 +814,7 @@
         const disp = document.getElementById('logDisplay');
         const btn = document.getElementById('btnMask');
         if (isMasked) {
-          disp.innerHTML = 'Oct 28 14:30:20 <span class="text-cyan-300 font-bold">[VAULT_HOST:8f1a]</span> kernel: NVRM: Xid (PCI:<span class="text-cyan-300 font-bold">[VAULT_BDF:e210]</span>): 48, pid=<span class="text-cyan-300 font-bold">[VAULT_PID:7c4a]</span>, name=torchrun, An uncorrectable double bit error (DBE) detected on <span class="text-cyan-300 font-bold">[VAULT_GPU:9b04]</span>';
+          disp.innerHTML = 'Oct 28 14:30:20 <span class="vault-token">[VAULT_HOST:8f1a]</span> kernel: NVRM: Xid (PCI:<span class="vault-token">[VAULT_BDF:e210]</span>): 48, pid=<span class="vault-token">[VAULT_PID:7c4a]</span>, name=torchrun, An uncorrectable double bit error (DBE) detected on <span class="vault-token">[VAULT_GPU:9b04]</span>';
           btn.innerText = currentLang === 'ru' ? 'Показать сырой текст' : 'Show raw text';
         } else {
           disp.innerText = 'Oct 28 14:30:20 gpu-h100-017 kernel: NVRM: Xid (PCI:0000:3b:00.0): 48, pid=145980, name=torchrun, An uncorrectable double bit error (DBE) detected on GPU-1a2b3c4d';
