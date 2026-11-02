@@ -1,0 +1,5 @@
+# https://verter.glyphai.ie/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://verter.glyphai.ie/sitemap.xml
