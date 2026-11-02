@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,6 +42,29 @@
  */
 
 :root,
+html.light {
+  /* --- Light Theme: Cleanroom Silicon Blueprint (Default) --- */
+  --bg-monolith: #F8FAFC;       /* Cleanroom pearl-slate base */
+  --bg-surface: #FFFFFF;        /* Pristine cards and telemetry panels */
+  --bg-surface-elevated: #F1F5F9; /* Subtle elevated surfaces */
+  --border-utility: #CBD5E1;    /* Crisp 1px division lines */
+
+  /* Text & Semantic Content */
+  --text-primary: #0F172A;      /* Deep midnight slate for high legibility */
+  --text-muted: #475569;        /* Technical slate gray for scaffolding */
+
+  /* Functional Accents (Calibrated for white background contrast) */
+  --accent-coolant: #007799;    /* Deep Coolant Sky (WCAG AA 4.5:1 on white) */
+  --accent-amber: #C26200;      /* Terminal Amber for light mode */
+  --accent-vault: #6941C6;      /* Deep Vault Purple */
+
+  /* Micro-Typography */
+  --font-data: "JetBrains Mono", "SF Mono", monospace;
+  --font-editorial: "Inter", -apple-system, sans-serif;
+
+  color-scheme: light;
+}
+
 html.dark {
   /* --- Dark Theme: Deep Server-Room Obsidian Base --- */
   --bg-monolith: #0B0D11;       /* Deep server-room obsidian base */
@@ -63,29 +86,6 @@ html.dark {
   --font-editorial: "Inter", -apple-system, sans-serif;
 
   color-scheme: dark;
-}
-
-html.light {
-  /* --- Light Theme: Cleanroom Silicon Blueprint --- */
-  --bg-monolith: #F8FAFC;       /* Cleanroom pearl-slate base */
-  --bg-surface: #FFFFFF;        /* Pristine cards and telemetry panels */
-  --bg-surface-elevated: #F1F5F9; /* Subtle elevated surfaces */
-  --border-utility: #CBD5E1;    /* Crisp 1px division lines */
-
-  /* Text & Semantic Content */
-  --text-primary: #0F172A;      /* Deep midnight slate for high legibility */
-  --text-muted: #475569;        /* Technical slate gray for scaffolding */
-
-  /* Functional Accents (Calibrated for white background contrast) */
-  --accent-coolant: #007799;    /* Deep Coolant Sky (WCAG AA 4.5:1 on white) */
-  --accent-amber: #C26200;      /* Terminal Amber for light mode */
-  --accent-vault: #6941C6;      /* Deep Vault Purple */
-
-  /* Micro-Typography */
-  --font-data: "JetBrains Mono", "SF Mono", monospace;
-  --font-editorial: "Inter", -apple-system, sans-serif;
-
-  color-scheme: light;
 }
 
 /* Light Mode Overrides for Core UI Elements */
@@ -307,9 +307,9 @@ body {
         <a href="https://github.com/Moon-stone-AI" target="_blank">[ Repository ]</a>
       </nav>
       <div class="flex items-center gap-2.5 shrink-0">
-                <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[var(--border-utility)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] transition-all cursor-pointer font-mono text-xs shadow-sm" title="Toggle Light / Dark theme">
-          <span id="themeIcon">☀️</span>
-          <span id="themeLabel" class="hidden sm:inline text-[11px] font-medium text-[var(--text-muted)]">Light</span>
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[var(--border-utility)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] transition-all cursor-pointer font-mono text-xs shadow-sm" title="Switch to Dark theme">
+          <span id="themeIcon">🌙</span>
+          <span id="themeLabel" class="hidden sm:inline text-[11px] font-medium text-[var(--text-muted)]">Dark</span>
         </button>
         <div class="flex items-center rounded-lg bg-slate-900 border border-slate-800 p-0.5 text-xs font-mono">
           <button id="langEnBtn" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded transition-colors font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 cursor-pointer">EN</button>
@@ -962,7 +962,7 @@ body {
     <!-- Interactive script with full English/Russian dictionary -->
     <script>
       
-      let currentTheme = localStorage.getItem('glyphai_theme') || 'dark';
+      let currentTheme = localStorage.getItem('glyphai_theme') || 'light';
 
       function applyTheme(theme) {
         currentTheme = theme;
