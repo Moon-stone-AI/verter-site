@@ -32,4 +32,20 @@
       <image:caption>Operational RCA Engine isolating the lone survivor node across 5,000 servers in 98 seconds with 26,440x semantic compression.</image:caption>
     </image:image>
   </url>
+
+  <!-- GPU Health Score & Predictive Telemetry -->
+  <url>
+    <loc>https://gpu.glyphai.ie/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gpu.glyphai.ie/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://gpu.glyphai.ie/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gpu.glyphai.ie/" />
+    <image:image>
+      <image:loc>https://verter.glyphai.ie/assets/glyphai-logo.jpg</image:loc>
+      <image:title>GPU Health Score &amp; Predictive Telemetry — GlyphAI</image:title>
+      <image:caption>Architectural Irreversibility for Hardware Assets. Deep analytics for HBM3 ECC decay, Arrhenius stress, and 30-day survival probability.</image:caption>
+    </image:image>
+  </url>
 </urlset>
